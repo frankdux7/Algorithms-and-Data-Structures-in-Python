@@ -1,14 +1,16 @@
 
 
-def selectionSort(L):
+def selection_sort(L):
+
     for i in range(len(L)):
-        j = i+1
+        min_position = i
         for j in range(i+1, len(L)):
-            if L[j] < L[i]:
-                temp = L[i]
-                L[i] = L[j]
-                L[j] = temp
+            if L[min_position] > L[j]:
+                min_position = j
+
+        L[min_position], L[i] = L[i], L[min_position]
+
     return L
 
 L = [4,6,5,1,3,2,7,11,9,10,8]
-print(selectionSort(L))
+print(selection_sort(L))
